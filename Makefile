@@ -15,7 +15,7 @@ vercel:
 	@tar -xvf pandoc-3.1.6.2-linux-amd64.tar.gz
 	@mv pandoc-3.1.6.2 bin/pandoc
 	@rm pandoc-3.1.6.2-linux-amd64.tar.gz
-	export PATH="./bin/pandoc/bin:$PATH"
+	export PATH="./bin/pandoc/bin:${PATH}"
 	$(MAKE) install
 
 install: html static image dist/sitemap.xml dist/rss.xml public
