@@ -9,7 +9,7 @@ thumb := $(bin)/thumb
 rss := $(bin)/rss
 sitemap := $(bin)/sitemap
 
-all: html static image dist/sitemap.xml dist/rss.xml public
+install: html static image dist/sitemap.xml dist/rss.xml public
 
 dev:
 	find src templates -type f | entr make
