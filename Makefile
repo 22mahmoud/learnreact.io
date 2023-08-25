@@ -9,6 +9,8 @@ thumb := $(bin)/thumb
 rss := $(bin)/rss
 sitemap := $(bin)/sitemap
 
+pandoc := ${pandoc_path}
+
 install: html static image dist/sitemap.xml dist/rss.xml public
 
 dev:
@@ -24,7 +26,7 @@ dist/sitemap.xml: $(md_files) $(sitemap)
 
 dist/%.html: src/%.md templates/* $(MD_TO_HTML)
 	@mkdir -p $(@D)
-	@pandoc -d pandoc.yaml $< -o $@
+	@$(pandoc) -d pandoc.yaml $< -o $@
 	@echo "[html generated]:" $@
 
 static:
