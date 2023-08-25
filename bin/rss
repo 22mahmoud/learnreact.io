@@ -24,7 +24,7 @@ main() {
       description="$(grep -E "^description: (.*)" "$file" | sed -E "s/^description: (.*)/\1/" | awk '{$1=$1};1')"
       date="$(grep -E "^date: (.*)" "$file" | sed -E "s/^date: (.*)/\1/" | awk '{$1=$1};1')"
       date="$(date -d "$date" '+%a, %d %b %Y %H:%M:%S %z')"
-      html_content="$(pandoc -f markdown -t html "$file")"
+      html_content="$($PANDOC_PATH -f markdown -t html "$file")"
 
       echo "<item>"
       echo "<title>$title</title>"

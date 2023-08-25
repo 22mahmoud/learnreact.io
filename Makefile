@@ -9,13 +9,14 @@ thumb := $(bin)/thumb
 rss := $(bin)/rss
 sitemap := $(bin)/sitemap
 
+pandoc := ${PANDOC_PATH}
+
 vercel:
 	@yum install wget
 	@wget https://github.com/jgm/pandoc/releases/download/3.1.6.2/pandoc-3.1.6.2-linux-amd64.tar.gz
 	@tar -xvf pandoc-3.1.6.2-linux-amd64.tar.gz
 	@mv pandoc-3.1.6.2 bin/pandoc
 	@rm pandoc-3.1.6.2-linux-amd64.tar.gz
-	export PATH="./bin/pandoc/bin:${PATH}"
 	$(MAKE) install
 
 install: html static image dist/sitemap.xml dist/rss.xml public
@@ -33,7 +34,7 @@ dist/sitemap.xml: $(md_files) $(sitemap)
 
 dist/%.html: src/%.md templates/* $(MD_TO_HTML)
 	@mkdir -p $(@D)
-	@pandoc -d pandoc.yaml $< -o $@
+	@$(pandoc) -d pandoc.yaml $< -o $@
 	@echo "[html generated]:" $@
 
 static:
