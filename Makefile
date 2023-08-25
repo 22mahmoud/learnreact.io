@@ -11,6 +11,12 @@ sitemap := $(bin)/sitemap
 
 pandoc := ${pandoc_path}
 
+download-pandoc:
+	@wget https://github.com/jgm/pandoc/releases/download/3.1.6.2/pandoc-3.1.6.2-linux-amd64.tar.gz
+	@tar -xvf pandoc-3.1.6.2-linux-amd64.tar.gz
+	@mv pandoc-3.1.6.2 bin/pandoc
+	@rm pandoc-3.1.6.2-linux-amd64.tar.gz
+
 install: html static image dist/sitemap.xml dist/rss.xml public
 
 dev:
