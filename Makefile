@@ -12,6 +12,7 @@ sitemap := $(bin)/sitemap
 pandoc := ${pandoc_path}
 
 download-pandoc:
+	@yum install wget
 	@wget https://github.com/jgm/pandoc/releases/download/3.1.6.2/pandoc-3.1.6.2-linux-amd64.tar.gz
 	@tar -xvf pandoc-3.1.6.2-linux-amd64.tar.gz
 	@mv pandoc-3.1.6.2 bin/pandoc
