@@ -9,15 +9,14 @@ thumb := $(bin)/thumb
 rss := $(bin)/rss
 sitemap := $(bin)/sitemap
 
-pandoc := ${PANDOC_PATH}
+pandoc := pandoc-3.1.6.2
+pandoc_linux := ${pandoc}-linux-amd64.tar.gz
 
 vercel:
 	@yum install wget
-	@wget https://github.com/jgm/pandoc/releases/download/3.1.6.2/pandoc-3.1.6.2-linux-amd64.tar.gz
-	@tar -xvf pandoc-3.1.6.2-linux-amd64.tar.gz
-	@mv pandoc-3.1.6.2 bin/pandoc
-	@rm pandoc-3.1.6.2-linux-amd64.tar.gz
-	$(MAKE) install
+	@wget https://github.com/jgm/pandoc/releases/download/3.1.6.2/${pandoc_linux}
+	@tar -xvf ${pandoc_linux}
+	@export PATH=$PATH:$(pwd)/${pandoc}
 
 install: html static image dist/sitemap.xml dist/rss.xml public
 
@@ -50,4 +49,4 @@ clean:
 	@rm -vrf $(output)
 
 
-.PHONY: all html static image clean dev public
+.PHONY: all html static image clean dev public vercel
