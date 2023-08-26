@@ -33,7 +33,7 @@ dist/sitemap.xml: $(md_files) $(sitemap)
 
 dist/%.html: src/%.md templates/* $(MD_TO_HTML)
 	@mkdir -p $(@D)
-	@$(pandoc) -d pandoc.yaml $< -o $@
+	@pandoc -d pandoc.yaml $< -o $@
 	@echo "[html generated]:" $@
 
 static:
