@@ -9,7 +9,9 @@ thumb := $(bin)/thumb
 rss := $(bin)/rss
 sitemap := $(bin)/sitemap
 
-pandoc := pandoc-3.1.6.2
+pandoc_releases := https://github.com/jgm/pandoc/releases/download
+pandoc_version := 3.1.6.2
+pandoc := pandoc-$(pandoc_version)
 pandoc_linux := $(pandoc)-linux-amd64.tar.gz
 
 # check if pandoc directory already exists, then add it to PATH (for vercel deployment)
@@ -20,9 +22,8 @@ endif
 install: html static image dist/sitemap.xml dist/rss.xml public
 
 vercel:
-	@yum install wget
-	@wget https://github.com/jgm/pandoc/releases/download/3.1.6.2/${pandoc_linux}
-	@tar -xvf ${pandoc_linux}
+	@wget $(pandoc_releases)/$(pandoc_version)/$(pandoc_linux)
+	@tar -xvf $(pandoc_linux)
 
 dev:
 	find src templates -type f | entr make
