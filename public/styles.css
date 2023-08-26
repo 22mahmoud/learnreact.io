@@ -80,7 +80,8 @@ main {
 }
 
 figure {
-  max-width: 90%;
+  max-width: 98%;
+  margin: 0 auto;
 }
 
 figcaption,
@@ -218,4 +219,3 @@ footer {
 .nav ul li:not(:last-child) {
   margin-right: 0.8em;
 }
-
