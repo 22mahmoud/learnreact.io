@@ -4,5 +4,7 @@ standalone: true
 data-dir: .
 template: default.html
 metadata-file: metadata.yaml
+css:
+  - /styles.css
 filters:
   - img_filter.lua
