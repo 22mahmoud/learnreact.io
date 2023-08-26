@@ -6,3 +6,4 @@ package.json
 yarn.*
 node_modules
 
+.vercel
