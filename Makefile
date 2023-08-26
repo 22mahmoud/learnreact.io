@@ -8,7 +8,6 @@ html_files := $(patsubst $(source)/%.md,$(output)/%.html,$(md_files))
 thumb := $(bin)/thumb
 rss := $(bin)/rss
 sitemap := $(bin)/sitemap
-vercel_build := $(bin)/vercel-build
 
 pandoc := pandoc-3.1.6.2
 pandoc_linux :="$(pandoc)-linux-amd64.tar.gz
@@ -17,8 +16,8 @@ export PATH := ${PATH}:${PWD}/${pandoc}/bin
 
 vercel:
 	@yum install wget
-	@wget https://github.com/jgm/pandoc/releases/download/3.1.6.2/$(pandoc_linux) 
-	@tar -xvf $(pandoc_linux)
+	@wget https://github.com/jgm/pandoc/releases/download/3.1.6.2/${pandoc_linux}
+	@tar -xvf ${pandoc_linux}
 
 install: html static image dist/sitemap.xml dist/rss.xml public
 
