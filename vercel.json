@@ -1,4 +1,5 @@
 {
   "buildCommand": "make install",
-  "installCommand": "make clean vercel"
+  "installCommand": "make clean vercel",
+  "outputDirectory": "dist"
 }
