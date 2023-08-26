@@ -16,10 +16,10 @@ pandoc_linux := $(pandoc)-linux-amd64.tar.gz
 
 # check if pandoc directory already exists, then add it to PATH (for vercel deployment)
 ifneq ("$(wildcard ${pandoc})","")
-  export PATH := ${PATH}:${PWD}/${pandoc}/bin
+	export PATH := ${PATH}:${PWD}/${pandoc}/bin
 endif
 
-install: html static image dist/sitemap.xml dist/rss.xml
+install: html static dist/sitemap.xml dist/rss.xml
 
 vercel:
 	@yum install wget
@@ -46,11 +46,8 @@ static:
 	cd $(source) && find . -type f ! -name "*.md" -print0 | cpio -pdvm0 ../$(output)
 	cp -r public/* $(output)
 
-image:
-	@$(thumb)
-
 clean: 
 	@rm -vrf $(output)
 
 
-.PHONY: all html static image clean dev vercel
+.PHONY: all html static clean dev vercel
