@@ -2,7 +2,7 @@
 title-prefix: Blog
 ---
 
-# Blog
+# Blog test
 
 _Subscribe via [RSS](https://learnreact.io/rss.xml)_
 
