@@ -19,7 +19,7 @@ ifneq ("$(wildcard ${pandoc})","")
   export PATH := ${PATH}:${PWD}/${pandoc}/bin
 endif
 
-install: html static image dist/sitemap.xml dist/rss.xml public
+install: html static image dist/sitemap.xml dist/rss.xml
 
 vercel:
 	@yum install wget
@@ -44,8 +44,6 @@ dist/%.html: src/%.md templates/* $(MD_TO_HTML)
 
 static:
 	cd $(source) && find . -type f ! -name "*.md" -print0 | cpio -pdvm0 ../$(output)
-
-public:
 	cp -r public/* $(output)
 
 image:
@@ -55,4 +53,4 @@ clean:
 	@rm -vrf $(output)
 
 
-.PHONY: all html static image clean dev public vercel
+.PHONY: all html static image clean dev vercel
