@@ -22,6 +22,7 @@ endif
 install: html static image dist/sitemap.xml dist/rss.xml public
 
 vercel:
+	@yum install wget
 	@wget $(pandoc_releases)/$(pandoc_version)/$(pandoc_linux)
 	@tar -xvf $(pandoc_linux)
 
