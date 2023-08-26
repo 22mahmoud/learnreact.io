@@ -16,7 +16,7 @@ pandoc_linux :="$(pandoc)-linux-amd64.tar.gz
 export PATH := ${PATH}:${PWD}/${pandoc}/bin
 
 vercel:
-	@yup install wget
+	@yum install wget
 	@wget https://github.com/jgm/pandoc/releases/download/3.1.6.2/$(pandoc_linux) 
 	@tar -xvf $(pandoc_linux)
 
