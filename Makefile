@@ -10,7 +10,7 @@ rss := $(bin)/rss
 sitemap := $(bin)/sitemap
 
 pandoc := pandoc-3.1.6.2
-pandoc_linux :="$(pandoc)-linux-amd64.tar.gz
+pandoc_linux := $(pandoc)-linux-amd64.tar.gz
 
 export PATH := ${PATH}:${PWD}/${pandoc}/bin
 
