@@ -25,6 +25,7 @@ vercel:
 	@yum install wget
 	@wget $(pandoc_releases)/$(pandoc_version)/$(pandoc_linux)
 	@tar -xvf $(pandoc_linux)
+	@yarn install
 
 dev:
 	find src templates -type f | entr make

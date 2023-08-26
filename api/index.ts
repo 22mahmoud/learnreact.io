@@ -1,4 +1,4 @@
-const express = require("express");
+import express from "express";
 
 const app = express();
 
@@ -8,4 +8,4 @@ app.get("/api", (req, res) => {
   res.end(`Hello! from appi`);
 });
 
-module.exports = app;
+export default app;
