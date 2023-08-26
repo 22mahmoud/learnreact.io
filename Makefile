@@ -38,7 +38,7 @@ dist/rss.xml: $(md_files) $(rss)
 dist/sitemap.xml: $(md_files) $(sitemap)
 	@$(sitemap)
 
-dist/%.html: src/%.md templates/*
+dist/%.html: src/%.md templates/* public/styles.css
 	@mkdir -p $(@D)
 	@pandoc -d pandoc.yaml $< -o $@
 	@echo "[html generated]:" $@
