@@ -1,7 +1,4 @@
 dist
-.luarc.json
-
-# to get nvim lsp works
 node_modules
-
 .vercel
+.env
