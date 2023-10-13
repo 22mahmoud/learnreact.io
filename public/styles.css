@@ -74,7 +74,7 @@ body {
   line-height: 1.5;
   background: rgb(var(--bg-1));
   color: rgb(var(--tx-1));
-  max-width: 40em;
+  max-width: 50em;
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -141,6 +141,54 @@ pre {
 code {
   font: 1em/1.6 var(--mono);
   color: rgb(var(--tx-1));
+}
+
+.sourceCode .kw {
+  color: #7aa2f7;
+}
+
+.sourceCode .dt {
+  color: #7aa2f7;
+}
+
+.sourceCode .dv,
+.sourceCode .bn,
+.sourceCode .fl {
+  color: #d06ba7;
+}
+
+.sourceCode .ch {
+  color: #d46967;
+}
+
+.sourceCode .st {
+  color: #5caebd;
+}
+
+.sourceCode .co {
+  color: #6e767e;
+}
+
+.sourceCode .ot {
+  color: #b6850e;
+}
+
+.sourceCode .al {
+  color: #cc6d0d;
+  font-weight: bold;
+}
+
+.sourceCode .fu {
+  color: #7aa2f7;
+}
+
+.sourceCode .re {
+  color: #d06c6e;
+}
+
+.sourceCode .er {
+  color: #d06c6e;
+  font-weight: bold;
 }
 
 blockquote {

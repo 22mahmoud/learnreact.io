@@ -28,7 +28,7 @@ vercel:
 	@yarn install
 
 dev:
-	find src templates -type f | entr make
+	find src templates public templates filters -type f | entr make
 
 html: $(html_files)
 
@@ -43,7 +43,7 @@ dist/%.html: src/%.md templates/* public/styles.css
 	@pandoc -d pandoc.yaml $< -o $@
 	@echo "[html generated]:" $@
 
-static:
+static: public/*
 	cd $(source) && find . -type f ! -name "*.md" -print0 | cpio -pdvm0 ../$(output)
 	cp -r public/* $(output)
 
