@@ -9,3 +9,5 @@ keywords: react, react-router, javascript, react-router-dom, typescript,
 ---
 
 # [Draft] How to define type-safe routes with react-router and typescript
+
+${newsletter_form.html()}

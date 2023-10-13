@@ -51,6 +51,28 @@ local set_image_size = function(img, path)
 	end
 end
 
+local function resize_image(img, input_file, output_path, output_file)
+	-- create .tmp directory to store resized images
+	-- 1. check the image inside dist if it exists do nothing
+	-- 2. check the image inside .tmp if it exists copy it to dist
+	-- 3. if not exists create it inside .tmp and copy it to dist
+
+	-- check if the image exists inside dist
+	local handle = io.popen("ls " .. output_file)
+	local result = handle:read("*a")
+	handle:close()
+
+	if result ~= "" then
+		-- image exists inside dist
+		set_image_size(img, output_file)
+
+		return
+	end
+
+	os.execute("mkdir -p " .. output_path)
+	os.execute("cwebp -resize 640 0 -q 80 " .. input_file .. " -o " .. output_file)
+end
+
 local src = "src"
 local dist = "dist"
 

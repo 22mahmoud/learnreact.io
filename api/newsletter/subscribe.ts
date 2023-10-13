@@ -28,7 +28,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const message: MailDataRequired = {
     to: email,
     from: "newsletter@learnreact.io",
-    replyTo: "hello@mahmoudashraf.dev",
     subject: "Confirm your subscription",
     text: `Hello, \nThank you for subscribing to our newsletter. Please complete and confirm your subscription by clicking on the following link:\n ${confirmationURL}`,
     html: `Hello,

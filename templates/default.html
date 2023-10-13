@@ -64,19 +64,8 @@
     </main>
 
     <footer>
-      <form method="post" action="/api/newsletter/subscribe" class="newsletter">
-        <label for="email">Subscribe to the newsletter</label>
-        <input
-          required
-          type="email"
-          name="email"
-          placeholder="Your email" 
-        />
 
-
-
-        <input type="submit" value="Subscribe" />
-      </form>
+      ${newsletter_form.html()}
 
       © <a href="/"> learnreact.io </a>
     </footer>

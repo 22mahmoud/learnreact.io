@@ -76,3 +76,31 @@ export const getListId = async (name: string) => {
 
   return response[1].result.find((list: any) => list.name === name)?.id;
 };
+
+type SendNewsletterParams = {
+  listID: string;
+  htmlNewsletter: string;
+  unsubscribeURL: string;
+  subject: string;
+};
+
+export async function sendNewsletterToList({
+  listID,
+  htmlNewsletter,
+  subject,
+}: SendNewsletterParams) {
+  const data = { query: `CONTAINS(list_ids, '${listID}')` };
+
+  const response = await sgClient.request({
+    url: `/v3/marketing/contacts/search`,
+    method: "POST",
+    body: data,
+  });
+
+  return response?.[1]?.result?.map((subscriber: any) => ({
+    to: subscriber.email,
+    from: "newsletter@learnreact.io",
+    subject,
+    html: htmlNewsletter,
+  }));
+}
